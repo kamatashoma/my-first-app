@@ -1,6 +1,6 @@
 import { grey } from 'ansi-colors';
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   StyleSheet,
   Text,
@@ -10,7 +10,11 @@ import {
   FlatList,
 } from 'react-native';
 import ListItem from './component/ListItem';
-import articles from './dummies/articles.json';
+import dummyarticles from './dummies/articles.json';
+import Constants from 'expo-constants';
+import axios from 'axios';
+
+const URL = `https://newsapi.org/v2/top-headlines?country=jp&apiKey=${Constants.manifest.extra.newsApiKey}`;
 
 const styles = StyleSheet.create({
   container: {
@@ -21,16 +25,19 @@ const styles = StyleSheet.create({
 });
 
 export default function App() {
-  const items = articles.map((article, index) => {
-    return (
-      <ListItem
-        imageurl={article.urlToImage}
-        detail={article.title}
-        author={article.author}
-        key={index}
-      />
-    );
-  });
+  useEffect(() => {
+    fetchArticles();
+  }, []);
+
+  const fetchArticles = async () => {
+    try {
+      const response = await axios.get(URL);
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
