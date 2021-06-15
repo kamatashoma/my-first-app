@@ -1,5 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, SafeAreaView } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  SafeAreaView,
+  TouchableOpacity,
+} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -38,15 +45,17 @@ const styles = StyleSheet.create({
 
 const ListItem = (props) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={props.onPress}>
       <View style={styles.itemContainer}>
         <View style={styles.leftContainer}>
-          <Image
-            style={{ width: 100, height: 100 }}
-            source={{
-              uri: props.imageurl,
-            }}
-          />
+          {!!props.imageurl && (
+            <Image
+              style={{ width: 100, height: 100 }}
+              source={{
+                uri: props.imageurl,
+              }}
+            />
+          )}
         </View>
         <View style={styles.lightContainer}>
           {/* numberOfLinesは何行で切るか指定できる */}
@@ -56,7 +65,7 @@ const ListItem = (props) => {
           <Text style={styles.source}>{props.author}</Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
