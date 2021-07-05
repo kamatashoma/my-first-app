@@ -32,7 +32,7 @@ const ClipStack = () => {
   );
 };
 
-const screenOption = ({ route }) => {
+const screenOption = ({ route }) => ({
   tabBarIcon: ({ color, size }) => {
     let iconName;
 
@@ -43,8 +43,8 @@ const screenOption = ({ route }) => {
     }
 
     return <FontAwesome name={iconName} size={size} color={color} />;
-  };
-};
+  },
+});
 export default AppNavigator = () => {
   return (
     <NavigationContainer>
