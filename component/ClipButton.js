@@ -12,7 +12,7 @@ const ClipButton = ({ onPress, enabled }) => {
   const name = enabled ? 'star' : 'star-o';
   const colorOption = () => {
     if (name == 'star') {
-      color = 'yellow';
+      color = '#ffd700';
     } else {
       color = 'grey';
     }

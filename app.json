@@ -15,7 +15,8 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "bundleIdentifier": "com.yooutool2021"
     },
     "android": {
       "adaptiveIcon": {
@@ -26,6 +27,9 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "extra": { "newsApiKey": "a6272e7afc2149f1acdfeda8079f401f" }
+    "extra": {
+      "newsApiKey": "a6272e7afc2149f1acdfeda8079f401f"
+    },
+    "description": ""
   }
 }

@@ -48,12 +48,17 @@ const ListItem = (props) => {
     <TouchableOpacity style={styles.container} onPress={props.onPress}>
       <View style={styles.itemContainer}>
         <View style={styles.leftContainer}>
-          {!!props.imageurl && (
+          {!!props.imageurl ? (
             <Image
               style={{ width: 100, height: 100 }}
               source={{
                 uri: props.imageurl,
               }}
+            />
+          ) : (
+            <Image
+              style={{ width: 100, height: 100 }}
+              source={require('../assets/noimage.png')}
             />
           )}
         </View>
